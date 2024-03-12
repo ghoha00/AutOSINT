@@ -42,9 +42,9 @@ class Haveibeenpwned():
                         page.raise_for_status()
                 except page.exceptions.HTTPError as e:
                     if e.page.status_code == 503:
-                        print ('Service unavailable')
+                        print('Service unavailable')
                         continue
             except:
-                print ('[-] Connection error or no result on {} :'.format(url))
-                print ('[-] Status code {}'.format(page.status_code))
+                print('[-] Connection error or no result on {} :'.format(url))
+                print('[-] Status code {}'.format(page.status_code))
                 continue

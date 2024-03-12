@@ -33,7 +33,7 @@ class Scraper(object):
         for i,l in enumerate(lookup):
             scrapeFile=open(reportDir+l+'/'+l+'_scrape.txt','w')
 
-            print ('[+] Scraping sites using %s' % l)
+            print('[+] Scraping sites using %s' % l)
             #http://www.indeed.com/jobs?as_and=ibm.com&as_phr=&as_any=&as_not=&as_ttl=&as_cmp=&jt=all&st=&salary=&radius=25&fromage=any&limit=500&sort=date&psf=advsrch
             #init list and insert domain with tld stripped
             #insert lookup value into static urls
@@ -50,13 +50,13 @@ class Scraper(object):
             for name,url in scrapeUrls.items():
                 #indeed matches jobs. yeah yeah it doesnt use their api yet
                 if name == 'indeed':
-                    if args.verbose is True:print '[+] Searching job postings on indeed.com for %s:' % l.split('.')[0]
+                    if args.verbose is True:print('[+] Searching job postings on indeed.com for %s:' % l.split('.')[0])
                     
                     #http://docs.python-guide.org/en/latest/scenarios/scrape/
                     try:
                         ipage = requests.get(url, headers = userAgent)
                     except Exception as e:
-                        print ('[-] Scraping error on %s: %s' %(url, e))
+                        print('[-] Scraping error on %s: %s' %(url, e))
                         continue
 
                     #build html tree
@@ -64,7 +64,7 @@ class Scraper(object):
 
                     #count jobs
                     jobCount = itree.xpath('//div[@id="searchCount"]/text()')
-                    print '[+] '+str(''.join(jobCount)) + ' Jobs posted on indeed.com that match %s:' % (l.split('.')[0])
+                    print('[+] '+str(''.join(jobCount)) + ' Jobs posted on indeed.com that match %s:' % (l.split('.')[0]))
                     jobTitle = itree.xpath('//a[@data-tn-element="jobTitle"]/text()')
                     self.indeedResult.append('\n[+] Job postings on indeed.com that match %s \n\n' % l.split('.')[0])
                     for t in jobTitle:
@@ -74,13 +74,13 @@ class Scraper(object):
                 #https://developer.github.com/v3/search/
                 #http://docs.python-guide.org/en/latest/scenarios/json/
                 if name == 'github':
-                    if args.verbose is True:print '[+] Searching repository names on Github for %s' % (l.split('.')[0])
+                    if args.verbose is True:print('[+] Searching repository names on Github for %s' % (l.split('.')[0]))
 
                     #http://docs.python-guide.org/en/latest/scenarios/scrape/
                     try:
                         gpage = requests.get(url, headers = userAgent)
                     except Exception as e:
-                        print ('[-] Scraping error on %s: %s' %(url, e))
+                        print('[-] Scraping error on %s: %s' %(url, e))
                         continue
 
                     #read json response
@@ -93,7 +93,7 @@ class Scraper(object):
 
                 if name == 'virustotal':
                     if not os.path.exists(apiKeyDir + 'virus_total.key'):
-                        print '[-] Missing %svirus_total.key' % apiKeyDir
+                        print('[-] Missing %svirus_total.key' % apiKeyDir)
                         
                         vtApiKey=raw_input("Please provide an API Key: ")
         
@@ -109,7 +109,7 @@ class Scraper(object):
                                 for k in apiKeyFile:
                                     vtApiKey = k
                         except:
-                            print ('[-] Error opening %svirus_total.key key file, skipping. ' % apiKeyDir)
+                            print('[-] Error opening %svirus_total.key key file, skipping. ' % apiKeyDir)
                             continue
 
 
@@ -152,7 +152,7 @@ class Scraper(object):
 
             #verbosity logic
             if args.verbose is True:
-                for gr in self.githubResult: print (''.join(gr.strip('\n')))
-                for ir in self.indeedResult: print (''.join(ir.strip('\n')))
+                for gr in self.githubResult: print(''.join(gr.strip('\n')))
+                for ir in self.indeedResult: print(''.join(ir.strip('\n')))
 
         return self.scrapeResult

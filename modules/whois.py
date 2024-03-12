@@ -10,7 +10,7 @@ class Whois():
 
         #iterate the index and values of the lookup list
         for i, l in enumerate(lookup):
-            print ('[+] Performing whois query %s for %s' % (str(i + 1), l))
+            print('[+] Performing whois query %s for %s' % (str(i + 1), l))
             
             whoisFile=open(reportDir+l+'/'+l+'_whois.txt','w')
 
@@ -33,7 +33,7 @@ class Whois():
             
             #verbosity logic
             if args.verbose is True:
-                for w in whoisResult: print (''.join(w))
+                for w in whoisResult: print(''.join(w))
 
         return whoisResult
         

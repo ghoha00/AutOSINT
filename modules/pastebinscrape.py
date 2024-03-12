@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import requests, time
-from google import search
+from googlesearch import search
 from lxml import html
 
 class Pastebinscrape():
@@ -59,7 +59,7 @@ class Pastebinscrape():
                         pasteUrlFile.writelines(u+'\n')
                         paste_scrape_results.append(u+'\n')
                     except:
-                        print ('[-] Error opening ' + u +':')
+                        print('[-] Error opening ' + u +':')
                         paste_scrape_results.append('Error opening {}'.format(u))
                         continue
 
@@ -68,7 +68,7 @@ class Pastebinscrape():
 
                     #if verbose spit out url, search term and domain searched
                     if args.verbose is True:
-                        print ('[+] Looking for instances of {} and {} in {}'.format(d,l,u))
+                        print('[+] Looking for instances of {} and {} in {}'.format(d,l,u))
                     #grab raw paste data from the textarea
                     rawPasteData = tree.xpath('//textarea[@class="paste_code"]/text()')
 
