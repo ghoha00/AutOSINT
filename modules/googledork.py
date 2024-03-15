@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import requests, time
-from google import search
+from googlesearch import search
 from lxml import html
 
 
@@ -35,7 +35,7 @@ class Googledork():
                 googleFile=open(reportDir+l+'/'+l+'_google_dork.txt','w')
 
                 #show user whiat is being searched
-                print ('[+] Google query %s for %s site:%s' % (str(i + 1),str(d),str(l)))
+                print('[+] Google query %s for %s site:%s' % (str(i + 1),str(d),str(l)))
                 print('[+] Results:')
                 
                 try:
@@ -48,7 +48,7 @@ class Googledork():
                         time.sleep(2)
                 #catch exceptions
                 except Exception as e:
-                    print ('[!] Error encountered: %s' % e)
+                    print('[!] Error encountered: %s' % e)
                     pass
         #iterate results
         for r in self.google_result:
@@ -57,7 +57,7 @@ class Googledork():
 
         #verbosity flag
         if self.args.verbose is True:
-            for r in self.google_result: print (''.join(r))
+            for r in self.google_result: print(''.join(r))
                 
         #return results list
         return self.google_result

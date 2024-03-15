@@ -108,7 +108,7 @@ class Reportgen(object):
 
             instrText = OxmlElement('w:instrText')
             instrText.set(qn('xml:space'), 'preserve')  # sets attribute on element
-            instrText.text = 'TOC \o "1-3" \h \z \u'   # change 1-3 depending on heading levels you need
+            instrText.text = 'TOC \o "1-3" \\h \\z \\u'   # change 1-3 depending on heading levels you need
 
             fldChar2 = OxmlElement('w:fldChar')
             fldChar2.set(qn('w:fldCharType'), 'separate')
@@ -290,7 +290,7 @@ class Reportgen(object):
                         font.name = 'Arial'
                         font.size = Pt(10)
                     except:
-                        print ('probably an encoding error...')
+                        print('probably an encoding error...')
                         continue
 
             print('[+] Writing file: ./reports/{}/OSINT_{}_.docx'.format(l, l))
