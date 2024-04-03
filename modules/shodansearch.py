@@ -25,7 +25,7 @@ class Shodansearch():
         if not os.path.exists(api_key_directory + 'shodan.key'):
             print('[!] You are missing {}shodan.key'.format(api_key_directory))
             self.api_key_value = getpass.getpass('[i] Please provide an API Key: ')
-            response = raw_input('[i] Would you like to save this key to a plaintext file? (y/n): ')
+            response = input('[i] Would you like to save this key to a plaintext file? (y/n): ')
             
             if 'y' in response.lower():
                 with open(api_key_directory + 'shodan.key', 'w') as api_key_file:

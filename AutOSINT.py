@@ -110,7 +110,7 @@ class Autosint(object):
         #require at least one argument
         if not (self.args.domain):
             print('[-] No OSINT reference provided, add domain(s) with -d\n')
-            parser.print_help()
+            self.parser.print_help()
             sys.exit(0)
 
         #check to see if an ip or domain name was entered
@@ -127,7 +127,7 @@ class Autosint(object):
         #check for a supplied client name and exit if none provided
         if self.args.client is None:
             print('\n[!] Client name required, please provide with -c <Clientname>\n')
-            parser.print_help()
+            self.parser.print_help()
             sys.exit(0)
         else:
             #strip out specials in client name
