@@ -18,7 +18,8 @@ class Whois():
             #split into newlines instead of commas
             try:
                 whoisCmd = subprocess.Popen(['whois',l], stdout = subprocess.PIPE).communicate()[0].split('\n')
-            except:
+            except Exception as e:
+                print(e)
                 print('[-] Error running whois command')
                 whoisResult.append('Error running whois command')
                 continue
