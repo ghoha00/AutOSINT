@@ -26,7 +26,7 @@ class Whois():
 
             #filter on colon to remove boilerplace. sketchy but an improvement
             for line in whoisCmd:
-                whoisResult.append(str(line))
+                whoisResult.append((line.decode("utf-8")))
 
             #write the file
             for line in whoisResult:
