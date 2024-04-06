@@ -27,7 +27,7 @@ class Dnsquery():
             dnsResult.append(dnsCmd)
 
             for r in dnsResult:
-                dnsFile.writelines('\n'.join(r.decode("utf-8")))
+                dnsFile.writelines('\n'.join(r))
 
             #print dnsResult if -v
             if args.verbose is True:
