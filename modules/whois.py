@@ -30,7 +30,6 @@ class Whois():
 
             #write the file
             for line in whoisResult:
-                print(line)
                 whoisFile.writelines(''.join(line)+'\n')
             
             #verbosity logic
