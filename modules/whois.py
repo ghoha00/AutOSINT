@@ -17,6 +17,7 @@ class Whois():
             #subprocess open the whois command for current value of "l" in lookup list. 
             #split into newlines instead of commas
             try:
+                print(l)
                 whoisCmd = subprocess.Popen(['whois',l], stdout = subprocess.PIPE).communicate()[0].split('\n')
             except Exception as e:
                 print(str(e))
