@@ -19,6 +19,7 @@ class Whois():
             try:
                 whoisCmd = subprocess.Popen(['whois',l], stdout = subprocess.PIPE).communicate()[0].split('\n')
             except Exception as e:
+                print('Going into error')
                 print(str(e))
                 print('[-] Error running whois command')
                 whoisResult.append('Error running whois command')
