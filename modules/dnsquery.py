@@ -27,6 +27,7 @@ class Dnsquery():
             dnsResult.append(dnsCmd)
 
             for r in dnsResult:
+                print(r)
                 dnsFile.writelines('\n'.join(r))
 
             #print dnsResult if -v
