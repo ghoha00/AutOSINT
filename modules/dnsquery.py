@@ -17,13 +17,13 @@ class Dnsquery():
             dnsFile=open(reportDir+l+'/'+l+'_dns.txt','w')
             #subprocess to run host -a on the current value of l in the loop, split into newlines
             try:
-                dnsCmd = subprocess.Popen(['host', '-a', str(l)], stdout = subprocess.PIPE).communicate()[0].split('\n')
+                dnsCmd = subprocess.Popen(['host', '-a', str(l)], stdout = subprocess.PIPE).communicate()[0].split(b'\n')
             except:
                 print('[-] Error running dns query')
                 dnsResult.append('Error running DNS query')
                 continue
             #append lists together
-            dnsResult.append(dnsCmd)
+            dnsResult.append(dnsCmd.decode("utf-8"))
 
             for r in dnsResult:
                 dnsFile.writelines('\n'.join(r))
