@@ -24,7 +24,10 @@ class Dnsquery():
                 dnsResult.append('Error running DNS query')
                 continue
             #append lists together
-            dnsResult.append(dnsCmd)
+            dnsTemp = []
+            for each in dnsCmd:
+                dnsTemp.append(each.decode("utf-8"))
+            dnsResult.append(dnsTemp)
 
             for r in dnsResult:
 
