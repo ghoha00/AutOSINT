@@ -53,6 +53,7 @@ class Shodansearch():
                 #for each result
                 for service in result['matches']:
                     if args.verbose is True:
+                        print(service)
                         print(str(service['ip_str'].encode('utf-8')+\
                             ' ISP: '+service['isp'].encode('utf-8')+\
                             ' Last seen: '+service['timestamp'].encode('utf-8')))
