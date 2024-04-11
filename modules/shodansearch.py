@@ -53,13 +53,16 @@ class Shodansearch():
                 #for each result
                 for service in result['matches']:
                     if args.verbose is True:
+                        print("In 1st IF")
                         print(str(service['ip_str'].encode('utf-8')+\
                             ' ISP: '+service['isp'].encode('utf-8')+\
                             ' Last seen: '+service['timestamp'].encode('utf-8')))
                     if args.verbose is True:
+                        print("In 2nd IF")
                         #print and encode if there are non-us chars
                         print(service['data'].encode('utf-8'))
                     #append to shodanResult list
+                    print("END OF IFS")
                     print(type(service['ip_str']))
                     print(type(service['isp']))
                     print(type(service['timestamp']))
