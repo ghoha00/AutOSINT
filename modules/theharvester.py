@@ -28,7 +28,10 @@ class Theharvester():
             self.theharvester_result.append(bash_command)
             #append resutls and write to lookup result file
             for r in self.theharvester_result:
-                harvesterFile.writelines(r.decode("utf-8"))
+                tempr = []
+                for each in r:
+                    tempr.append(each.decode("utf-8"))
+                harvesterFile.writelines(tempr)
         #verbosity
         if args.verbose is True:
             for h in self.theharvester_result:
