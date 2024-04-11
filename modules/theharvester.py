@@ -38,6 +38,6 @@ class Theharvester():
                 temph = []
                 for each in h:
                     temph.append(each.decode("utf-8"))
-                print(''.join(h))
+                print(''.join(temph))
         #return list object
         return self.theharvester_result
