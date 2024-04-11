@@ -64,16 +64,11 @@ class Shodansearch():
                         #print and encode if there are non-us chars
                         print(service['data'])
                     #append to shodanResult list
-                    print("END OF IFS")
-                    print(type(service['ip_str']))
-                    print(type(service['isp']))
-                    print(type(service['timestamp']))
-                    print(type(service['data']))
                     self.shodan_query_result.append(str(\
-                        service['ip_str'].encode('utf-8')+\
-                        '\nISP:'+service['isp'].encode('utf-8')+\
-                        '\nLast seen:'+service['timestamp'].encode('utf-8'))+\
-                        '\n'+service['data'].encode('utf-8'))               
+                        service['ip_str']+\
+                        '\nISP:'+service['isp']+\
+                        '\nLast seen:'+service['timestamp'])+\
+                        '\n'+service['data'])
 
             #catch exceptions       
             except Exception as e:
