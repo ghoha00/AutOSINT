@@ -50,6 +50,7 @@ class Shodansearch():
                 #https://shodan.readthedocs.io/en/latest/examples/basic-search.html
                 result = shodanApi.search(query="hostname:"+l)
                 print('[+] Shodan found: {} hosts'.format(str(result['total'])))
+                print(result)
                 #for each result
                 for service in result['matches']:
                     if args.verbose is True:
