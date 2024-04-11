@@ -50,14 +50,16 @@ class Shodansearch():
                 #https://shodan.readthedocs.io/en/latest/examples/basic-search.html
                 result = shodanApi.search(query="hostname:"+l)
                 print('[+] Shodan found: {} hosts'.format(str(result['total'])))
-                print(result)
                 #for each result
                 for service in result['matches']:
                     if args.verbose is True:
                         print("In 1st IF")
-                        print(str(service['ip_str'].encode('utf-8')+\
-                            ' ISP: '+service['isp'].encode('utf-8')+\
-                            ' Last seen: '+service['timestamp'].encode('utf-8')))
+                        print(service['ip_str']+\
+                              ' ISP: '+service['isp']+\
+                              ' Last seen: '+service['timestamp'])
+                        #print(str(service['ip_str'].encode('utf-8')+\
+                        #    ' ISP: '+service['isp'].encode('utf-8')+\
+                        #    ' Last seen: '+service['timestamp'].encode('utf-8')))
                     if args.verbose is True:
                         print("In 2nd IF")
                         #print and encode if there are non-us chars
