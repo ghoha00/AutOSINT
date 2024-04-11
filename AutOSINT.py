@@ -157,7 +157,8 @@ class Autosint(object):
         self.pastebin_scrape_urls_result = self.pastebin_scrape_module.run(self.args, self.lookup_list, self.report_directory, self.api_key_directory)
         
         #verified
-        self.theharvester_module_result = self.theharvester_module.run(self.args, self.lookup_list, self.report_directory)
+        # Pointless as the selected options are no longer valid
+        #self.theharvester_module_result = self.theharvester_module.run(self.args, self.lookup_list, self.report_directory)
         
         self.cred_leak_search_result = self.cred_leaks_module.run(self.args, self.lookup_list, self.start_time, self.report_directory)
         
