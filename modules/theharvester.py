@@ -18,7 +18,7 @@ class Theharvester():
             for source in self.harvester_sources:
                 try:
                     print('[+] Running theHarvester -b {} -d {} '.format(source, l))
-                    bash_command = subprocess.Popen(['theharvester', '-b', '{}'.format(source), '-d', '{}'.format(str(l)), '-l', '500', '-h'], stdout=subprocess.PIPE).communicate()[0].split(b'\r\n')
+                    bash_command = subprocess.Popen(['theharvester', '-b', '{}'.format(source), '-d', '{}'.format(str(l)), '-l', '500'], stdout=subprocess.PIPE).communicate()[0].split(b'\r\n')
                 except Exception as e:
                     print(e)
                     print('[-] Error running theHarvester. Make sure it is in your PATH and you are connected to the Internet')
