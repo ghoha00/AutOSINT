@@ -60,7 +60,6 @@ class Shodansearch():
                         #    ' ISP: '+service['isp'].encode('utf-8')+\
                         #    ' Last seen: '+service['timestamp'].encode('utf-8')))
                     if args.verbose is True:
-                        print("In 2nd IF")
                         #print and encode if there are non-us chars
                         print(service['data'])
                     #append to shodanResult list
