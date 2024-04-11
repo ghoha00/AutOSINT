@@ -35,6 +35,9 @@ class Theharvester():
         #verbosity
         if args.verbose is True:
             for h in self.theharvester_result:
+                temph = []
+                for each in h:
+                    temph.append(each.decode("utf-8"))
                 print(''.join(h))
         #return list object
         return self.theharvester_result
