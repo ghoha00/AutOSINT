@@ -95,9 +95,9 @@ class Scraper(object):
                     if not os.path.exists(apiKeyDir + 'virus_total.key'):
                         print('[-] Missing %svirus_total.key' % apiKeyDir)
                         
-                        vtApiKey=raw_input("Please provide an API Key: ")
+                        vtApiKey=input("Please provide an API Key: ")
         
-                        response=raw_input('Would you like to save this key to a file? (y/n): ')
+                        response=input('Would you like to save this key to a file? (y/n): ')
                         if 'y' in response.lower():
                             with open(apiKeyDir + 'virus_total.key', 'w') as apiKeyFile:
                                 apiKeyFile.writelines(vtApiKey)
