@@ -143,6 +143,7 @@ class Scraper(object):
             for i in self.indeedResult:
                 scrapeFile.writelines(''.join(str(i.encode('utf-8'))))
             for v in self.virusTotalResult:
+                print(v)
                 scrapeFile.writelines(str(json.dumps(response_json, indent=4, sort_keys=True)).encode('utf-8'))
                     
 
